@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>Default jQuery Datepicker</title>
+		<link rel="stylesheet" type="text/css" href="jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="demos.css">
+		<script src="jquery-1.5.1.js"></script>
+		<script src="jquery.ui.core.js"></script>
+		<script src="jquery.ui.widget.js"></script>
+		<script src="jquery.ui.datepicker.js"></script>
+		<script> 
+			$(function() {
+				$( "#datepicker" ).datepicker({
+					altField: "#alternate",
+					altFormat: "DD, d MM, yy"
+				});
+			});
+		</script> 
+	</head>
+	<body>
+		<div style="width:900px; height:auto; font-size:small;">
+			<div class="demo">
+				<p>
+					Select the date: <input type="text" id="datepicker">&nbsp;<input type="text" id="alternate" size="30"/>
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
