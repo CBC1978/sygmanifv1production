@@ -1,2 +1,0 @@
- <td><a href="chargeurm.php?id=<?php echo $operateur['idbon'];?>"><span class="fa fa-pencil fa-fw ">  </span>  </a></td> 
-							   <td><strong><a href="bonchargementm.php?id= <?php echo htmlspecialchars($operateur['idbon']); ?>"> <?php echo htmlspecialchars($operateur['idbon']); ?> </strong> </td> 
