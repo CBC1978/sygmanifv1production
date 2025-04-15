@@ -14,6 +14,11 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
+RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+
+
 WORKDIR /var/www/html
 
 COPY ./app /var/www/html

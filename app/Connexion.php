@@ -1,7 +1,7 @@
 <?php
 // Connexion à la base de données
 function bdd() {
-$mysqli = new mysqli("localhost", "root", 'Cbcfaso2009', "bcproduction");
+$mysqli = new mysqli("mysql", "root", 'Cbcfaso1978', "sygmanifv2prod");
 	if ($mysqli->connect_errno) {
     echo "Echec lors de la connexion à MySQL : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 	}
