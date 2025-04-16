@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 if (isset($_POST['btnlogin']) ){
 	
 	include('Connexion.php');
@@ -20,7 +21,7 @@ if (isset($_POST['btnlogin']) ){
 	$res->execute();	
 	$res->bind_result($iduser, $nomuser,$prenomuser,$idposte,$idgroupe,$lieudetravail,$actif,$id);
 	if (mysqli_stmt_fetch($res) and $actif==1 ){
-	session_start();
+	
 	$_SESSION['iduser']=$_POST['username'];
 	$_SESSION['logged']=true;
 	$_SESSION['nomuser']=$nomuser;
