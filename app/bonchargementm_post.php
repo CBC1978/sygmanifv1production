@@ -36,7 +36,7 @@ $req->execute(array($typec,$numerovehicule,$nomchaufeur,
 $idtransitaire, $marchandise,$poids,$nbrecolis,
 $nomdestinataire, $adresse, $datebon,$modifyby,
 $curdate,$idbon));
-echo "Modifié avec succès";
+
 }
 catch(Exception $e)
 {
