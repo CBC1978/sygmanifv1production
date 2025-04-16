@@ -3,7 +3,8 @@
 // Connexion à la base de données
 try
 {
-	$bdd = new PDO('mysql:host=localhost;dbname=bcproduction;charset=utf8','root','Cbcfaso2009');
+	$bdd = new PDO("mysql:host=mysql_db;port=3306;dbname=sygmanifv2prod", "cbc", "Cbcfaso@1978");
+
 }
 catch(Exception $e)
 {
