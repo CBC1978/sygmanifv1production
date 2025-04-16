@@ -45,6 +45,9 @@ services:
     environment:
       PMA_HOST: mysql
       MYSQL_ROOT_PASSWORD: Cbcfaso1978
+      UPLOAD_LIMIT: 100M       # taille de fichier autorisée
+      PHP_UPLOAD_MAX_FILESIZE: 100M
+      PHP_POST_MAX_SIZE: 100M
     ports:
       - "8081:80"  # Accès à phpMyAdmin sur ce port
     networks:
