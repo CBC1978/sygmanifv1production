@@ -1,4 +1,6 @@
 <?php
+ob_start();
+
 // Connexion à la base de données
 include('session-verif.php');
 include "ConnectionPOO.php";
@@ -57,8 +59,6 @@ catch(Exception $e)
 {
         die('Erreur : '.$e->getMessage()); // $bdd->rollback();
 		}
-
-
-
 header('Location: bonchargement.php');
+exit;
 ?>
