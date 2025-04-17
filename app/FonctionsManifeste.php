@@ -1,5 +1,3 @@
-
-
 <?php 
 
 function EntetefactureC($conn,$idcons,$typedetrafic,$numerovoyage,$idposte,$datevoyage,$nomnavire) {
@@ -350,9 +348,4 @@ function EntetefactureC($conn,$idcons,$typedetrafic,$numerovoyage,$idposte,$date
 		
 	
 	<?php }
-	
-	
 	?>
-	
-	
-	

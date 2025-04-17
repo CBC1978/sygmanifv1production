@@ -1,46 +1,19 @@
-
 <?php
-
-include('session-verif.php');
-include("ConnectionPOO.php");
-include('FonctionsManifeste.php');
-//include('Montantenlettres.php');
-header ('Content-type: text/html; charset=UTF-8');
-
-
-
+	ob_start(); // Commence la mise en tampon tout de suite
+	// $content = ob_get_clean(); // fin de la mise en tampon
+	include('session-verif.php');
+	include("ConnectionPOO.php");
+	include('FonctionsManifeste.php');
+	header('Content-type: text/html; charset=UTF-8');
 	$id = $_GET['id'];
     $result = $bdd->query("SELECT b.*,t.nomtransitaire FROM bonchargement b, transitaire t
-	where b.idtransitaire=t.idtransitaire and  idbon=$id");
-
-
-	
-	ob_start();	
-	?>
+	where b.idtransitaire=t.idtransitaire and  idbon=$id");	?>
 	<style>
 	table {border-collapse:collapse;width: 100%}
-	</style>
-
-	<?php
-	require_once('html2pdf/html2pdf.class.php');
-	try{
-					
-		$pdf=  new HTML2PDF('P', 'A4', 'fr', true, 'UTF-8') ;
-		}
-		catch(HTML2PDF_exception $e) {
-		echo $e;
-		exit;}		
+	</style>	<?php	
 	?>
-	
-	
-	
-	
-	
 		<page><?php $i=0; 
 		if ($_SESSION["administrateur"]=="N") include('entetebon.php');?><br>
-		
-		
-			
 	<?php  while ($resultat=$result->fetch()) {  ?> 
 			<?php 
 			if ($_SESSION["administrateur"]=="O") {
@@ -168,31 +141,23 @@ header ('Content-type: text/html; charset=UTF-8');
 			<b><?php echo "(".$_SESSION['titreresponsableng'].")"; ?></b> </span>
 			<?php     ?>
 			</p>
-			
 			</page>
-			
-				
 			<?php 
-			
-				 	
-			
-			
-				// $content=ob_get_contents() ;
-				$content= ob_get_clean();
-					
-					try{
-					
+				$content= ob_get_clean();			
+				require_once('html2pdf/html2pdf.class.php');
+
+				try{
+
+					$pdf=  new HTML2PDF('P', 'A4', 'fr', true, 'UTF-8') ;
 					$pdf->writeHTML($content);
-					ob_end_clean();
+					@ob_end_clean();
 					$filename = 'Bon' .'_'.date('Ymd');
-					$pdf->Output($filename.'.pdf','D'); }
+					$pdf->Output($filename.'.pdf','D'); 
+					exit;
+				}
 					catch(HTML2PDF_exception $e) {
 					echo $e;
 					exit;} 
-
-
-					//echo  $content;
 			 ?> 
-			
 			
 			
